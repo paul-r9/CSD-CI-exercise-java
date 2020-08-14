@@ -57,9 +57,4 @@ public class ISBN10Test {
 
         assertEquals(expected.toString(), actual.toString());
     }
-
-    @Test
-    public void Paul_Broke_The_Build() {
-        fail("Sorry!");
-    }
 }
