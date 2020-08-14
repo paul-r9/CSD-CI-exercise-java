@@ -36,6 +36,6 @@ public class ISBNFinder {
     }
 
     private String cleanUp(String isbn) {
-        return isbn.replace(" ", "");
+        return  isbn.replace(" ", "").replace("-", "");
     }
 }

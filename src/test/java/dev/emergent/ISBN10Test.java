@@ -69,4 +69,16 @@ public class ISBN10Test {
 
         assertEquals(expected.toString(), actual.toString());
     }
+
+    @Test
+    public void ISBN10WithDashes_BookFound() {
+        String ISBN = "0-201-48567-2";
+
+        ISBNFinder sut = new ISBNFinder();
+        BookInfo actual = sut.lookup(ISBN);
+
+        BookInfo expected = new BookInfo("Refactoring", "Martin Fowler", "0201485672", "9780201485677");
+
+        assertEquals(expected.toString(), actual.toString());
+    }
 }
