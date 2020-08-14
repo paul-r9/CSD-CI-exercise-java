@@ -3,6 +3,7 @@ package dev.emergent;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class ISBN10Test {
 
@@ -55,5 +56,10 @@ public class ISBN10Test {
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
 
         assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    public void Paul_Broke_The_Build() {
+        fail("Sorry!");
     }
 }
