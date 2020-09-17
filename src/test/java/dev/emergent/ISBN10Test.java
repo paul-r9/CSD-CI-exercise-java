@@ -1,5 +1,6 @@
 package dev.emergent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,7 +10,6 @@ public class ISBN10Test {
 
     @Test
     public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
-
         // Arrange
         String shortISBN = "12345";
 
@@ -23,7 +23,6 @@ public class ISBN10Test {
 
     @Test
     public void ISBN_longerThan10Characters_ReturnsInvalidBookInfo() {
-
         // Arrange
         String longISBN = "1234567890BCDEF";
 
@@ -37,7 +36,6 @@ public class ISBN10Test {
 
     @Test
     public void ISBN_BookNotFound() {
-
         String unknownISBN = "0553562614";
 
         ISBNFinder sut = new ISBNFinder();
@@ -80,5 +78,10 @@ public class ISBN10Test {
         BookInfo expected = new BookInfo("Refactoring", "Martin Fowler", "0201485672", "9780201485677");
 
         assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    public void FailingTest_Should_BreakTheBuild() {
+        Assert.fail("Azure build should fail");
     }
 }
