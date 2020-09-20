@@ -1,4 +1,8 @@
-package dev.emergent;
+package com.rocketnine;
+
+import dev.emergent.BookInfo;
+import dev.emergent.BookInfoProvider;
+import dev.emergent.ISBNService;
 
 public class ISBNFinder {
 
