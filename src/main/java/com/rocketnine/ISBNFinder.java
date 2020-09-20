@@ -17,7 +17,6 @@ public class ISBNFinder {
     }
 
     public BookInfo lookup(String ISBN) {
-        ISBN = cleanUp(ISBN);
 
         if (ISBN.length() == 13) {
             return isbnService.retrieve(ISBN);
@@ -36,10 +35,6 @@ public class ISBNFinder {
             }
 
             return bookInfo;
-      }
-    }
-
-    private String cleanUp(String isbn) {
-        return  isbn.replace(" ", "").replace("-", "");
+        }
     }
 }

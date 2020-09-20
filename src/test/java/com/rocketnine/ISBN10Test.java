@@ -6,17 +6,16 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 public class ISBN10Test {
 
     @Test
     public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
         // Arrange
-        String shortISBN = "12345";
+        ISBNFinder sut = new ISBNFinder();
 
         // Act
-        ISBNFinder sut = new ISBNFinder();
+        String shortISBN = "12345";
         BookInfo actual = sut.lookup(shortISBN);
 
         // Assert
@@ -26,10 +25,10 @@ public class ISBN10Test {
     @Test
     public void ISBN_longerThan10Characters_ReturnsInvalidBookInfo() {
         // Arrange
-        String longISBN = "1234567890BCDEF";
+        ISBNFinder sut = new ISBNFinder();
 
         // Act
-        ISBNFinder sut = new ISBNFinder();
+        String longISBN = "1234567890BCDEF";
         BookInfo actual = sut.lookup(longISBN);
 
         // Assert
@@ -38,9 +37,9 @@ public class ISBN10Test {
 
     @Test
     public void ISBN_BookNotFound() {
-        String unknownISBN = "0553562614";
-
         ISBNFinder sut = new ISBNFinder();
+
+        String unknownISBN = "0553562614";
         BookInfo actual = sut.lookup(unknownISBN);
 
         assertEquals("Title not found", actual.title);
@@ -48,36 +47,12 @@ public class ISBN10Test {
 
     @Test
     public void ISBN_BookFound() {
-        String ISBN = "0321146530";
-
         ISBNFinder sut = new ISBNFinder();
+
+        String ISBN = "0321146530";
         BookInfo actual = sut.lookup(ISBN);
 
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
-
-        assertEquals(expected.toString(), actual.toString());
-    }
-
-    @Test
-    public void ISBN10WithSpaces_BookFound() {
-        String ISBN = "0 201 48567 2";
-
-        ISBNFinder sut = new ISBNFinder();
-        BookInfo actual = sut.lookup(ISBN);
-
-        BookInfo expected = new BookInfo("Refactoring", "Martin Fowler", "0201485672", "9780201485677");
-
-        assertEquals(expected.toString(), actual.toString());
-    }
-
-    @Test
-    public void ISBN10WithDashes_BookFound() {
-        String ISBN = "0-201-48567-2";
-
-        ISBNFinder sut = new ISBNFinder();
-        BookInfo actual = sut.lookup(ISBN);
-
-        BookInfo expected = new BookInfo("Refactoring", "Martin Fowler", "0201485672", "9780201485677");
 
         assertEquals(expected.toString(), actual.toString());
     }
