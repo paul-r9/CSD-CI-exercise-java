@@ -58,7 +58,7 @@ public class ISBN10Test {
     }
 
     @Test
-    public void ignore_spaces_in_ISBN() {
+    public void ignore_spaces_in_ISBN10() {
         ISBNFinder sut = new ISBNFinder();
 
         String ISBN = "03 211 465 3 0";
@@ -71,8 +71,7 @@ public class ISBN10Test {
     }
 
     @Test
-    @Ignore
-    public void ignore_dashes_in_ISBN() {
+    public void ignore_dashes_in_ISBN10() {
         ISBNFinder sut = new ISBNFinder();
 
         String ISBN = "03-211-465-30";
@@ -83,4 +82,16 @@ public class ISBN10Test {
         assertNotNull(actual);
         assertEquals(expected.toString(), actual.toString());
     }
+
+    @Test
+    public void invalidChecksum_Returns_BookNotFound() {
+        ISBNFinder sut = new ISBNFinder();
+
+        String ISBN = "0321146531";
+        BookInfo actual = sut.lookup(ISBN);
+
+        assertNotNull(actual);
+        assertEquals("Invalid ISBN", actual.title);
+    }
+
 }

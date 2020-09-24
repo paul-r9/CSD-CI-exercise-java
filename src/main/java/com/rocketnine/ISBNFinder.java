@@ -18,11 +18,9 @@ public class ISBNFinder {
 
     public BookInfo lookup(String ISBN) {
 
-        String processedISBN = ISBN
-                .replace(" ", "")
-                .replace("-", "");
 
-        if (processedISBN.length() >= 13) {
+        String processedISBN = ISBN.replace(" ", "").replace("-", "");
+        if (processedISBN.length() > 13) {
             return new ISBN13(processedISBN).retrieve(this.isbnService);
         }
 
@@ -32,6 +30,10 @@ public class ISBNFinder {
             return new BookInfo("ISBN must be 10 characters in length");
         } else {
 
+            if (!isValidChecksum(processedISBN)) {
+                return new BookInfo("Invalid ISBN");
+            }
+
             BookInfo bookInfo = new ISBN13(processedISBN).retrieve(isbnService);
 
             if (null == bookInfo) {
@@ -40,5 +42,28 @@ public class ISBNFinder {
 
             return bookInfo;
         }
+    }
+
+    private boolean isValidChecksum(String processedISBN) {
+
+        //return false when not valid
+        //return true when valid
+
+        int sum = 0;
+
+        for (int i = 0; i < processedISBN.length() - 1; i++) {
+            int c = Character.getNumericValue(processedISBN.charAt(i));
+            sum += (i + 1) * c;
+        }
+
+        int modulo = sum % 11;
+
+        if (modulo == 10) {
+            // NEED A TEST FOR THIS CASE
+            return 'X' == processedISBN.charAt(9);
+        }
+
+        int lastDigit = Character.getNumericValue(processedISBN.charAt(9));
+        return lastDigit == modulo;
     }
 }
