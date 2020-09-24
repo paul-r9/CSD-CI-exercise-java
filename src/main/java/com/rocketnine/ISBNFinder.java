@@ -18,11 +18,11 @@ public class ISBNFinder {
 
     public BookInfo lookup(String ISBN) {
 
-        if (ISBN.length() == 13) {
-            return new ISBN13(ISBN).retrieve(this.isbnService);
-        }
-
         String processedISBN = ISBN.replace(" ", "");
+
+        if (processedISBN.length() == 13) {
+            return new ISBN13(processedISBN).retrieve(this.isbnService);
+        }
 
         if (processedISBN.length() < 10) {
             return new BookInfo("ISBN must be 10 characters in length");

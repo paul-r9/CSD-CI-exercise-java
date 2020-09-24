@@ -69,4 +69,18 @@ public class ISBN10Test {
         assertNotNull(actual);
         assertEquals(expected.toString(), actual.toString());
     }
+
+    @Test
+    @Ignore
+    public void ignore_dashes_in_ISBN() {
+        ISBNFinder sut = new ISBNFinder();
+
+        String ISBN = "03-211-465-30";
+        BookInfo actual = sut.lookup(ISBN);
+
+        BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+
+        assertNotNull(actual);
+        assertEquals(expected.toString(), actual.toString());
+    }
 }
