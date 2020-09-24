@@ -71,7 +71,6 @@ public class ISBN10Test {
     }
 
     @Test
-    @Ignore
     public void ignore_dashes_in_ISBN() {
         ISBNFinder sut = new ISBNFinder();
 
