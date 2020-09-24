@@ -19,7 +19,7 @@ public class ISBNFinder {
     public BookInfo lookup(String ISBN) {
 
         if (ISBN.length() == 13) {
-            return isbnService.retrieve(ISBN);
+            return new ISBN13(ISBN).retrieve(this.isbnService);
         }
 
         if (ISBN.length() < 10) {
@@ -28,7 +28,7 @@ public class ISBNFinder {
             return new BookInfo("ISBN must be 10 characters in length");
         } else {
 
-            BookInfo bookInfo = isbnService.retrieve(ISBN);
+            BookInfo bookInfo = new ISBN13(ISBN).retrieve(isbnService);
 
             if (null == bookInfo) {
                 return new BookInfo("Title not found");
