@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class ISBN10Test {
 
@@ -54,6 +54,19 @@ public class ISBN10Test {
 
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
 
+        assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    public void ignore_spaces_in_ISBN() {
+        ISBNFinder sut = new ISBNFinder();
+
+        String ISBN = "03 211 465 3 0";
+        BookInfo actual = sut.lookup(ISBN);
+
+        BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+
+        assertNotNull(actual);
         assertEquals(expected.toString(), actual.toString());
     }
 

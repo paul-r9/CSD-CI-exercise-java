@@ -22,13 +22,15 @@ public class ISBNFinder {
             return new ISBN13(ISBN).retrieve(this.isbnService);
         }
 
-        if (ISBN.length() < 10) {
+        String processedISBN = ISBN.replace(" ", "");
+
+        if (processedISBN.length() < 10) {
             return new BookInfo("ISBN must be 10 characters in length");
-        } else if (ISBN.length() > 10) {
+        } else if (processedISBN.length() > 10) {
             return new BookInfo("ISBN must be 10 characters in length");
         } else {
 
-            BookInfo bookInfo = new ISBN13(ISBN).retrieve(isbnService);
+            BookInfo bookInfo = new ISBN13(processedISBN).retrieve(isbnService);
 
             if (null == bookInfo) {
                 return new BookInfo("Title not found");
