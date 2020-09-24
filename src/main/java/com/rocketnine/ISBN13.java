@@ -12,6 +12,21 @@ public class ISBN13 {
     }
 
     public BookInfo retrieve(BookInfoProvider isbnService) {
-        return isbnService.retrieve(isbn);
+
+
+        if (isbn.length() > 13) {
+            return new BookInfo("ISBN must be 13 characters in length");
+        }
+
+        boolean isValidCheckSum = validateCheckSum(isbn);
+
+        if (isValidCheckSum) {
+            return isbnService.retrieve(isbn);
+        }
+        return new BookInfo("ISBN is NOT Valid CheckSum");
+    }
+
+    private boolean validateCheckSum(String isbn) {
+        return true;
     }
 }
