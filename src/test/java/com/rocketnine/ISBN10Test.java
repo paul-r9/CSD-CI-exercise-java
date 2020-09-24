@@ -69,10 +69,4 @@ public class ISBN10Test {
         assertNotNull(actual);
         assertEquals(expected.toString(), actual.toString());
     }
-
-    @Test
-    @Ignore
-    public void FailingTest_Should_BreakTheBuild() {
-        Assert.fail("Azure build should fail");
-    }
 }
