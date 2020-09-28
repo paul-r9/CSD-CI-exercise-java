@@ -56,4 +56,11 @@ public class ISBN10Test {
 
         assertEquals(expected.toString(), actual.toString());
     }
+
+
+
+    @Test
+    public void FailingTest_BreaksTheBuild() {
+        Assert.fail("Azure build is broken. Delete this test to fix it.");
+    }
 }
