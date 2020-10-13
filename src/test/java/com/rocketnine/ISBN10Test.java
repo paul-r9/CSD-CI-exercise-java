@@ -60,8 +60,7 @@ public class ISBN10Test {
 
 
     @Test
-    @Disabled
     public void FailingTest_BreaksTheBuild() {
-        Assertions.fail("Azure build is broken. Delete this test to fix it.");
+        Assertions.fail("Azure build is broken. Delete this test to get a Green build.");
     }
 }
