@@ -1,11 +1,11 @@
 package com.rocketnine;
 
 import dev.emergent.BookInfo;
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ISBN10Test {
 
@@ -60,8 +60,8 @@ public class ISBN10Test {
 
 
     @Test
-    @Ignore
+    @Disabled
     public void FailingTest_BreaksTheBuild() {
-        Assert.fail("Azure build is broken. Delete this test to fix it.");
+        Assertions.fail("Azure build is broken. Delete this test to fix it.");
     }
 }
