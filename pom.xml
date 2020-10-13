@@ -25,10 +25,10 @@
          
     <build>
       <finalName>isbn</finalName>
-<!--
-      <sourceDirectory>${project.basedir}/src/main/java/dev/emergent/</sourceDirectory>
-      <testSourceDirectory>${project.basedir}/src/test/java/dev/emergent/</testSourceDirectory>
--->
+<!-- Include following two lines for coverage -->
+      <sourceDirectory>${project.basedir}/src/main/java/com/rocketnine/</sourceDirectory>
+      <testSourceDirectory>${project.basedir}/src/test/java/com/rocketnine/</testSourceDirectory>
+<!-- -->
       <plugins>
         <plugin>
           <groupId>org.jacoco</groupId>
