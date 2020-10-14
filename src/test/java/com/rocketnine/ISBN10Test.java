@@ -61,7 +61,6 @@ public class ISBN10Test {
 
 
     @Test
-    @Disabled("ignore this failure - expect to see Azure build pass")
     public void FailingTest_BreaksTheBuild() {
         fail("Azure build is broken. Delete this test to get a Green build.");
     }
