@@ -59,7 +59,7 @@ public class ISBN13Test {
     }
 
     @Test
-    public void ISBN_BookFound_10() {
+    public void ISBN_BookFound_13() {
         ISBNFinder sut = new ISBNFinder();
 
         String ISBN = "9780321146533";

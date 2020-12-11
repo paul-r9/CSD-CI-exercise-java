@@ -18,6 +18,19 @@ public class ISBNFinder {
 
     public BookInfo lookup(String ISBN) {
 
+        if (ISBN.length() > 12) {
+               BookInfo bookInfo = isbnService.retrieve(ISBN);
+
+                if (null == bookInfo) {
+                    return new BookInfo("ISBN must be 10 or 13 characters in length");
+                }
+
+                return bookInfo;
+
+
+        }
+
+
         if (ISBN.length() < 10) {
             return new BookInfo("ISBN must be 10 characters in length");
         } else if (ISBN.length() > 10) {
