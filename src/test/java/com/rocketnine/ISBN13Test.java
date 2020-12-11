@@ -20,7 +20,7 @@ public class ISBN13Test {
         BookInfo actual = sut.lookup(shortISBN);
 
         // Assert
-        assertEquals("ISBN must be 10 characters in length", actual.title);
+        assertEquals("ISBN must be 10 or 13 characters in length", actual.title);
     }
 
     @Test
@@ -33,14 +33,14 @@ public class ISBN13Test {
         BookInfo actual = sut.lookup(longISBN);
 
         // Assert
-        assertEquals("ISBN must be 10 characters in length", actual.title);
+        assertEquals("ISBN must be 10 or 13 characters in length", actual.title);
     }
 
     @Test
     public void ISBN_BookNotFound() {
         ISBNFinder sut = new ISBNFinder();
 
-        String unknownISBN = "9780321146533";
+        String unknownISBN = "0553562614";
         BookInfo actual = sut.lookup(unknownISBN);
 
         assertEquals("Title not found", actual.title);
