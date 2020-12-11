@@ -60,6 +60,7 @@ public class ISBN10Test {
 
 
     @Test
+    @Disabled
     public void FailingTest_BreaksTheBuild() {
         fail("Azure build is broken. Delete this test to get a Green build.");
     }
