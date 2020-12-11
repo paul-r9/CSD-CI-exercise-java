@@ -58,6 +58,19 @@ public class ISBN13Test {
         assertEquals(expected.toString(), actual.toString());
     }
 
+    @Test
+    @Disabled
+    public void ISBN_BookFound_13() {
+        ISBNFinder sut = new ISBNFinder();
+
+        String ISBN = "9780321146533";
+        BookInfo actual = sut.lookup(ISBN);
+
+        BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+
+        assertEquals(expected.toString(), actual.toString());
+    }
+
 
     @Test
     @Disabled
