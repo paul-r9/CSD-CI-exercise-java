@@ -40,7 +40,7 @@ public class ISBN13Test {
     public void ISBN_BookNotFound() {
         ISBNFinder sut = new ISBNFinder();
 
-        String unknownISBN = "0553562614";
+        String unknownISBN = "9780321146533";
         BookInfo actual = sut.lookup(unknownISBN);
 
         assertEquals("Title not found", actual.title);
@@ -48,18 +48,6 @@ public class ISBN13Test {
 
     @Test
     public void ISBN_BookFound() {
-        ISBNFinder sut = new ISBNFinder();
-
-        String ISBN = "0321146530";
-        BookInfo actual = sut.lookup(ISBN);
-
-        BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
-
-        assertEquals(expected.toString(), actual.toString());
-    }
-
-    @Test
-    public void ISBN_BookFound_13() {
         ISBNFinder sut = new ISBNFinder();
 
         String ISBN = "9780321146533";

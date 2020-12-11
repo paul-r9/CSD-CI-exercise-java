@@ -32,9 +32,9 @@ public class ISBNFinder {
 
 
         if (ISBN.length() < 10) {
-            return new BookInfo("ISBN must be 10 characters in length");
+            return new BookInfo("ISBN must be 10 or 13 characters in length");
         } else if (ISBN.length() > 10) {
-            return new BookInfo("ISBN must be 10 characters in length");
+            return new BookInfo("ISBN must be 10 or 13 characters in length");
         } else {
 
             BookInfo bookInfo = isbnService.retrieve(ISBN);
