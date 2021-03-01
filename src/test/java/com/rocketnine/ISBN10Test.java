@@ -1,6 +1,7 @@
 package com.rocketnine;
 
 import dev.emergent.BookInfo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -60,6 +61,7 @@ public class ISBN10Test {
     }
 
     @Test
+    @Disabled
     public void FailingTest_BreaksTheBuild() {
         fail("Azure build is broken. Delete this test to get a Green build.");
     }
