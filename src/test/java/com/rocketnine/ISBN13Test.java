@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
-public class ISBN10Test {
+public class ISBN13Test {
 
     @Test
     public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
@@ -50,7 +50,7 @@ public class ISBN10Test {
     public void ISBN_BookFound() {
         ISBNFinder sut = new ISBNFinder();
 
-        String ISBN = "0321146530";
+        String ISBN = "9780321146533";
         BookInfo actual = sut.lookup(ISBN);
 
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
@@ -58,8 +58,22 @@ public class ISBN10Test {
         assertEquals(expected.toString(), actual.toString());
     }
 
+/*    @Test
+    @Disabled
+    public void ISBN_BookFound_13() {
+        ISBNFinder sut = new ISBNFinder();
+
+        String ISBN = "9780321146533";
+        BookInfo actual = sut.lookup(ISBN);
+
+        BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+
+        assertEquals(expected.toString(), actual.toString());
+    }*/
+
 
     @Test
+    @Disabled
     public void FailingTest_BreaksTheBuild() {
         fail("Azure build is broken. Delete this test to get a Green build.");
     }
