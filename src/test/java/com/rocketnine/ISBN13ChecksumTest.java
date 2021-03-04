@@ -2,11 +2,11 @@ package com.rocketnine;
 
 import dev.emergent.BookInfo;
 import dev.emergent.BookInfoProvider;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ISBN13ChecksumTest {
@@ -28,16 +28,19 @@ public class ISBN13ChecksumTest {
         assertEquals(13, actual.isbn13().length());
     }
 
-//    @Test
-//    public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
-//        // Arrange
-//        ISBNFinder sut = new ISBNFinder();
-//
-//        // Act
-//        String shortISBN = "12345";
-//        BookInfo actual = sut.lookup(shortISBN);
-//
-//        // Assert
-//        assertEquals("ISBN must be 10 characters in length", actual.title);
-//    }
+    @Test
+    public void ISBN_checksum_13() {
+        // Arrange
+        ISBNFinder sut = new ISBNFinder();
+
+        // Act
+        String shortISBN = "9780596809485";
+        BookInfo actual = sut.lookup(shortISBN);
+
+        // Assert
+        assertAll("Should return:",
+                () -> assertEquals(5, ISBN13ChecksumCalculator.calculateChecksumConcise(actual.isbn13())),
+                () -> assertEquals(5, ISBN13ChecksumCalculator.calculateChecksumWordy(actual.isbn13())));
+
+    }
 }
