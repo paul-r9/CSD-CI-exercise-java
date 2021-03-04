@@ -1,6 +1,7 @@
 package com.rocketnine;
 
 import dev.emergent.BookInfo;
+import dev.emergent.BookInfoProvider;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -15,16 +16,16 @@ public class ISBN13ChecksumTest {
 //    }
 
     @Test
-    public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
+    public void ISBN_exact_13() {
         // Arrange
         ISBNFinder sut = new ISBNFinder();
 
         // Act
-        String shortISBN = "12345";
+        String shortISBN = "9780596809485";
         BookInfo actual = sut.lookup(shortISBN);
 
         // Assert
-        assertEquals("ISBN must be 10 characters in length", actual.title);
+        assertEquals(13, actual.isbn13().length());
     }
 
 //    @Test
