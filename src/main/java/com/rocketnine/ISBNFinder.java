@@ -18,6 +18,7 @@ public class ISBNFinder {
 
     public BookInfo lookup(String ISBN) {
         ISBN = ISBN.replaceAll(" ", "");
+        ISBN = ISBN.replaceAll("-", "");
 
         if (ISBN.length() == 13) {
             return isbnService.retrieve(ISBN);
