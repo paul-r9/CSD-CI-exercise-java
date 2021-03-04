@@ -18,7 +18,6 @@ public class ISBN10Test {
         ISBNFinder sut = new ISBNFinder();
 
         // Act
-       // String shortISBN = "12 345";
         String longISBN = "978 0 131 49505 0";
         BookInfo actual = sut.lookup(longISBN);
 
@@ -34,7 +33,6 @@ public class ISBN10Test {
         ISBNFinder sut = new ISBNFinder();
 
         // Act
-        // String shortISBN = "12 345";
         String longISBN = "978-0-131-49505-0";
         BookInfo actual = sut.lookup(longISBN);
 
