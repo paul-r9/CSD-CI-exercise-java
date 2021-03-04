@@ -1,6 +1,7 @@
 package com.rocketnine;
 
 import dev.emergent.BookInfo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +10,22 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class ISBN10Test {
+
+    @Test
+    public void number_contains_spaces_ReturnsWithoutSpaces() {
+
+        // Arrange
+        ISBNFinder sut = new ISBNFinder();
+
+        // Act
+       // String shortISBN = "12 345";
+        String longISBN = "978 0 131 49505 0";
+        BookInfo actual = sut.lookup(longISBN);
+
+        // Assert
+        Assertions.assertEquals("9780131495050", actual.isbn13());
+
+    }
 
     @Test
     public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
