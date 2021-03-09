@@ -12,36 +12,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class ISBN10Test {
 
     @Test
-    public void number_contains_spaces_ReturnsWithoutSpaces() {
-
-        // Arrange
-        ISBNFinder sut = new ISBNFinder();
-
-        // Act
-        String longISBN = "978 0 131 49505 0";
-        BookInfo actual = sut.lookup(longISBN);
-
-        // Assert
-        Assertions.assertEquals("9780131495050", actual.isbn13());
-
-    }
-
-    @Test
-    public void number_contains_hyphens_ReturnsWithoutHyphens() {
-
-        // Arrange
-        ISBNFinder sut = new ISBNFinder();
-
-        // Act
-        String longISBN = "978-0-131-49505-0";
-        BookInfo actual = sut.lookup(longISBN);
-
-        // Assert
-        Assertions.assertEquals("9780131495050", actual.isbn13());
-
-    }
-
-    @Test
     public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
         // Arrange
         ISBNFinder sut = new ISBNFinder();
@@ -90,5 +60,10 @@ public class ISBN10Test {
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
 
         assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    public void FailingTest_BreaksTheBuild() {
+        fail("Azure build should fail when running this test. Delete this test to get a Green build.");
     }
 }
