@@ -16,6 +16,11 @@ public class ISBNFinder {
         isbnService = bookInfoProvider;
     }
 
+    public boolean checkSum13()
+    {
+        return true;
+    }
+
     public BookInfo lookup(String ISBN) {
 
         if (ISBN.length() == 13) {
