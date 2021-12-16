@@ -16,9 +16,15 @@ public class ISBNFinder {
         isbnService = bookInfoProvider;
     }
 
-    public boolean checkSum13()
+    public boolean checkSum13(String ISBN)
     {
-        return true;
+       int i =0;
+      try {
+          i = Integer.parseInt(ISBN);
+      }catch (NumberFormatException e) {
+          return false;
+      }
+      return true;
     }
 
     public BookInfo lookup(String ISBN) {

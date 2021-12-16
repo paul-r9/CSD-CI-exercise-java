@@ -12,20 +12,14 @@ public class ISBN13ChecksumTest {
     @Test
     public void ISBN_checkSum13_DoesNotThrow() {
         ISBNFinder sut = new ISBNFinder();
-        Assertions.assertTrue(sut.checkSum13());
+        Assertions.assertTrue(sut.checkSum13("123455"));
     }
 
     @Test
-    public void ISBN13_shorterThan10Characters_ReturnsInvalidBookInfo() {
-        // Arrange
+    public void ISBN_checkSum13_DoesThrow() {
         ISBNFinder sut = new ISBNFinder();
-
-        // Act
-        String shortISBN = "1234544444444444";
-        BookInfo actual = sut.lookup(shortISBN);
-
-        // Assert
-        assertEquals("ISBN must be 10 characters in length", actual.title);
+        Assertions.assertFalse(sut.checkSum13("123455aaaa"));
     }
+
 
 }
