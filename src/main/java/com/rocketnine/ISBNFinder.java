@@ -18,6 +18,23 @@ public class ISBNFinder {
 
     public boolean checkSum13(String ISBN)
     {
+        final char [] numbers = ISBN.toCharArray();
+
+
+
+
+        // 1st: x1  , 2nd: x3
+        //“9780471486480”
+        for(int i = 0; i < numbers.length;++i){
+//            if(indexIsEven()){
+//
+//            }else{
+//
+//            }
+        }
+
+
+
        int i =0;
       try {
           i = Integer.parseInt(ISBN);
