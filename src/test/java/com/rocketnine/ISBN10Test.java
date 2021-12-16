@@ -24,9 +24,6 @@ public class ISBN10Test {
         assertEquals("ISBN must be 10 characters in length", actual.title);
     }
 
-    private void assertEquals(String s, String title) {
-    }
-
     @Test
     public void ISBN_longerThan10Characters_ReturnsInvalidBookInfo() {
         // Arrange
@@ -60,11 +57,5 @@ public class ISBN10Test {
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
 
         assertEquals(expected.toString(), actual.toString());
-    }
-
-    @Test
-//    @Disabled("Expect CI build to pass when this test is not run")
-    public void FailingTest_BreaksTheBuild() {
-        fail("Azure build should fail when running this test. Delete this test to get a Green build.");
     }
 }
