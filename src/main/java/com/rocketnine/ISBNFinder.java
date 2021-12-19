@@ -16,18 +16,7 @@ public class ISBNFinder {
         isbnService = bookInfoProvider;
     }
 
-    public boolean checkSum13(String ISBN) {
-        int i = 0;
-        try {
-            i = Integer.parseInt(ISBN);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
     public BookInfo lookup(String ISBN) {
-        ISBN = sanitize(ISBN);
 
         if (ISBN.length() == 13) {
             return isbnService.retrieve(ISBN);
@@ -48,9 +37,4 @@ public class ISBNFinder {
             return bookInfo;
         }
     }
-
-    public String sanitize(String ISBN) {
-        return ISBN.replaceAll(" ", "").replaceAll("-", "");
-    }
-
 }
