@@ -2,8 +2,13 @@ package com.rocketnine;
 
 import dev.emergent.BookInfo;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -58,6 +63,27 @@ public class ISBN10Test {
         BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
 
         assertEquals(expected.toString(), actual.toString());
+    }
+
+
+    @DisplayName("Something displayed")
+    @ParameterizedTest(name = "Hello")
+    @ValueSource(strings = {"0321146530", "0321146530"})
+    void ISBN_Param(String ISBN) {
+        ISBNFinder sut = new ISBNFinder();
+
+        BookInfo actual = sut.lookup(ISBN);
+
+        BookInfo expected = new BookInfo("Test Driven Development by Example", "Kent Beck", "0321146530", "9780321146533");
+
+        assertEquals(expected.toString(), actual.toString());
+    }
+
+    @DisplayName("Should pass a non-null message to our test method")
+    @ParameterizedTest
+    @ValueSource(strings= {"Hello", "World"})
+    void shouldPassNonNullMessageAsMethodParameter(String message) {
+        assertNotNull(message);
     }
 
     @Test
