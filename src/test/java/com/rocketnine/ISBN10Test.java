@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
-public class ISBN10Test {
+class ISBN10Test {
 
     @Test
-    public void Valid_ISBN_BookFound() {
+    void Valid_ISBN_BookFound() {
         // Arrange
         ISBNFinder sut = new ISBNFinder();
 
@@ -26,7 +26,7 @@ public class ISBN10Test {
 
 
     @Test
-    public void Invalid_ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
+    void Invalid_ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
         ISBNFinder sut = new ISBNFinder();
 
         String shortISBN = "12345";
@@ -36,7 +36,7 @@ public class ISBN10Test {
     }
 
     @Test
-    public void Invalid_ISBN_longerThan10Characters_ReturnsInvalidBookInfo() {
+    void Invalid_ISBN_longerThan10Characters_ReturnsInvalidBookInfo() {
         ISBNFinder sut = new ISBNFinder();
 
         String longISBN = "1234567890BCDEF";
@@ -46,7 +46,7 @@ public class ISBN10Test {
     }
 
     @Test
-    public void Invalid_ISBN_BookNotFound() {
+    void Invalid_ISBN_BookNotFound() {
         ISBNFinder sut = new ISBNFinder();
 
         String unknownISBN = "0553562614";
@@ -57,7 +57,7 @@ public class ISBN10Test {
 
     @Test
     @Disabled("Expect CI build to pass when this test is not run")
-    public void FailingTest_BreaksTheBuild() {
+    void FailingTest_BreaksTheBuild() {
         fail("Azure build should fail when running this test. Delete this test to get a Green build.");
     }
 }

@@ -16,14 +16,14 @@ public class ISBNFinder {
         isbnService = bookInfoProvider;
     }
 
-    public BookInfo lookup(String ISBN) {
-        if (ISBN.length() < 10) {
+    public BookInfo lookup(String isbn) {
+        if (isbn.length() < 10) {
             return new BookInfo("ISBN must be 10 characters in length");
-        } else if (ISBN.length() > 10) {
+        } else if (isbn.length() > 10) {
             return new BookInfo("ISBN must be 10 characters in length");
         } else {
 
-            BookInfo bookInfo = isbnService.retrieve(ISBN);
+            BookInfo bookInfo = isbnService.retrieve(isbn);
 
             if (null == bookInfo) {
                 return new BookInfo("Title not found");
