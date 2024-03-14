@@ -19,16 +19,15 @@ public class ISBNFinder {
     }
 
     public BookInfo lookup(String isbn) {
-        isbn.replace("-", "");
-//        isbn.replace(" ", "");
+        isbn = isbn.replace("-", "");
+        isbn = isbn.replace(" ", "");
         if (!isbn.matches("^[0-9]+$")) {
-            return new BookInfo("ISBN should only contain digits and hyphens/spaces.");
+            return new BookInfo("ISBN should only contain digits and hyphens/spaces");
         }
 
-        if (isbn.length() < 10) {
-            return new BookInfo("ISBN must be 10 characters in length");
-        } else if (isbn.length() > 10) {
-            return new BookInfo("ISBN must be 10 characters in length");
+
+        if (isbn.length() != 10 && isbn.length() != 13) {
+            return new BookInfo("ISBN must be 10 or 13 characters in length");
         } else {
 
             BookInfo bookInfo = isbnService.retrieve(isbn);
