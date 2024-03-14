@@ -42,7 +42,7 @@ class ISBN10Test {
         String longISBN = "1234567890BCDEF";
         BookInfo actual = sut.lookup(longISBN);
 
-        assertEquals("ISBN must be 10 characters in length", actual.title);
+        assertEquals("ISBN should only contain digits and hyphens/spaces.", actual.title);
     }
 
     @Test

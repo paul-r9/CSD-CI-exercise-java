@@ -19,6 +19,12 @@ public class ISBNFinder {
     }
 
     public BookInfo lookup(String isbn) {
+        isbn.replace("-", "");
+//        isbn.replace(" ", "");
+        if (!isbn.matches("^[0-9]+$")) {
+            return new BookInfo("ISBN should only contain digits and hyphens/spaces.");
+        }
+
         if (isbn.length() < 10) {
             return new BookInfo("ISBN must be 10 characters in length");
         } else if (isbn.length() > 10) {
