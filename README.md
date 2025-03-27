@@ -7,7 +7,7 @@ ISBN exercise starter before adding CI hooks
 
 # Tasks
 - ISBN10
- - [x] ISBN10 support for spaces and dashes
+ - [ ] ISBN10 support for spaces and dashes
  - [ ] ISBN10 validate checksum
 
 
