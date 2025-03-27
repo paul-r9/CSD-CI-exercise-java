@@ -37,4 +37,8 @@ public class ISBNFinder {
             return bookInfo;
         }
     }
+
+    public String CalculateChecksum(String ISBN){
+        return ISBN.substring(ISBN.length()-1, ISBN.length());
+    }
 }
