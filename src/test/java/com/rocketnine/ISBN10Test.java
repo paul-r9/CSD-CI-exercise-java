@@ -4,6 +4,7 @@ import dev.emergent.BookInfo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
@@ -20,9 +21,6 @@ public class ISBN10Test {
 
         // Assert
         assertEquals("ISBN must be 10 characters in length", actual.title);
-    }
-
-    private void assertEquals(String s, String title) {
     }
 
     @Test
@@ -61,8 +59,21 @@ public class ISBN10Test {
     }
 
     @Test
-    @Disabled("Expect CI build to pass when this test is not run")
-    public void FailingTest_BreaksTheBuild() {
-        fail("Azure build should fail when running this test. Delete this test to get a Green build.");
+    public void ISBN_Sanitize_Spaces() {
+        String unsanitized = "0 13 475759 9";
+        String actual = Sanitizer.sanitize(unsanitized);
+
+        assertEquals("0134757599", actual);
+
     }
+
+    @Test
+    public void ISBN_Sanitize_Dashes() {
+        String unsanitized = "0-13-475759-9";
+        String actual = Sanitizer.sanitize(unsanitized);
+
+        assertEquals("0134757599", actual);
+    }
+
+
 }
