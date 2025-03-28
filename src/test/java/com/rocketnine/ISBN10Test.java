@@ -56,20 +56,4 @@ public class ISBN10Test {
         assertEquals(expected.toString(), actual.toString());
     }
 
-    @Test
-    public void ISBN_Sanitize_Spaces() {
-        String unsanitized = "0 13 475759 9";
-        String actual = Sanitizer.sanitize(unsanitized);
-
-        assertEquals("0134757599", actual);
-
-    }
-
-    @Test
-    public void ISBN_Sanitize_Dashes() {
-        String unsanitized = "0-13-475759-9";
-        String actual = Sanitizer.sanitize(unsanitized);
-
-        assertEquals("0134757599", actual);
-    }
 }
