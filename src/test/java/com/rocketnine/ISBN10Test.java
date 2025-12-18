@@ -57,10 +57,4 @@ public class ISBN10Test {
 
         assertEquals(expected.toString(), actual.toString());
     }
-
-    @Test
-    //@Disabled("Expect CI build to pass when this test is not run")
-    public void FailingTest_BreaksTheBuild() {
-        fail("Azure build should fail when running this test. Delete this test to get a Green build.");
-    }
 }
