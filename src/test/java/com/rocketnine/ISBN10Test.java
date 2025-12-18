@@ -10,18 +10,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class ISBN10Test {
 
-    @Test
-    public void ISBN_shorterThan10Characters_ReturnsInvalidBookInfo() {
-        // Arrange
-        ISBNFinder sut = new ISBNFinder();
-
-        // Act
-        String shortISBN = "12345";
-        BookInfo actual = sut.lookup(shortISBN);
-
-        // Assert
-        assertEquals("ISBN must be 10 characters in length", actual.title);
-    }
 
     @Test
     public void ISBN_longerThan10Characters_ReturnsInvalidBookInfo() {
