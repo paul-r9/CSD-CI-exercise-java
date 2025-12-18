@@ -16,6 +16,14 @@ public class ISBNFinder {
         isbnService = bookInfoProvider;
     }
 
+    static boolean isIt13(String shortISBN) {
+        if (shortISBN.length() == 13) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public BookInfo lookup(String ISBN) {
 
         // validate ISBN 
